@@ -1,14 +1,14 @@
-function openChat(time, callback) {
-	if (parseCookie('chatLoaded') !== '') {
+
+function openChat(latency, expires, callback) {
+	if (parseCookie('loaded') !== '') {
 		callback(true);
 	} else {
 		var date = new Date();
-		date.setTime(date.getTime() + 24*60*60*1000);
+		date.setTime(date.getTime() + expires * 24*60*60*1000);
 		setTimeout(function(){
-			console.log('пошла вода');
-			document.cookie += 'chatLoaded=true;expires=' + date.toUTCString() + ';';
-			callback(false)
-		}, time);
+			document.cookie += 'loaded=true;expires=' + date.toUTCString() + ';';
+			 callback(false);
+		}, latency);
 	}
 }
 
@@ -22,4 +22,3 @@ function parseCookie(key){
     }
     return '';
 }
-

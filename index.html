@@ -1,12 +1,12 @@
 <html>
 	<script type="text/javascript" src="./script.js"></script>
 	<script type="text/javascript">
-		var latency = 20000;
-		openChat(latency, function(visited){
+		var latency = 5000;
+		openChat(latency, 1, function(visited){
 			if (visited) {
-				alert('Чатик открывается сразу, потому что пользователь уже видел его');
+				alert('Не первое посещение');
 			} else {
-				alert('Чатик окрылся через N секунд при первом посещении');
+				alert('Первое посещение, открыто спустя ' + latency / 1000 + ' секунд.');
 			}
 		});
 	</script>
